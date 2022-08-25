@@ -1,43 +1,36 @@
 package org.example.palindrome;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class PalindromeCheckerTest {
 
-  @Test
-  void test_isPalindrome_true_1() {
-    assertTrue(PalindromeChecker.isPalindrome("lagerregal"));
-  }
 
-  @Test
-  void test_isPalindrome_true_2() {
-    assertTrue(PalindromeChecker.isPalindrome("ABBA"));
-  }
-
-  @Test
-  void test_isPalindrome_true_3() {
-    assertTrue(PalindromeChecker.isPalindrome("Kajak"));
-  }
-
-  @Test
-  void test_isPalindrome_true_4() {
-    assertTrue(PalindromeChecker.isPalindrome("Der Freibierfred"));
+  @ParameterizedTest
+  @ValueSource(strings = {
+      "lagerregal",
+      "ABBA",
+      "Kajak",
+      "Der Freibierfred"
+  })
+  void test_isPalindrome_true(String inputString) {
+    assertTrue(PalindromeChecker.isPalindrome(inputString));
   }
 
   @Test
   void test_isPalindrome_false() {
-    Assertions.assertFalse(PalindromeChecker.isPalindrome("ACDAC"));
+    assertFalse(PalindromeChecker.isPalindrome("ACDAC"));
   }
 
-  @Test //
+  @Test
   void test_isPalindrome_throwRuntimeException() {
-    Assertions.assertThrows(RuntimeException.class, () ->PalindromeChecker.isPalindrome("1x"));
+    assertThrows(RuntimeException.class, () -> PalindromeChecker.isPalindrome(""));
   }
-
 
 
 }

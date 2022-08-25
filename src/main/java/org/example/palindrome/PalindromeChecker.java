@@ -5,26 +5,25 @@ public class PalindromeChecker {
   /**
    * Checks if a inputString is a palindrome or not (No digits are allowed!)
    *
-   * Palindrom (Wikipedia): sinnvolle Folge von Buchstaben, Wörtern oder Versen, die vorwärts- wie rückwärtsgelesen [den gleichen] Sinn ergeben
+   * Palindrom (https://de.wikipedia.org/wiki/Palindrom):
+   * Als Palindrom (altgriechisch παλίνδρομος palíndromos „rückwärts laufend“) werden in der Sprachwissenschaft Wörter, Wortreihen oder Sätze bezeichnet,
+   * die rückwärts gelesen genau denselben Text oder zumindest einen Sinn ergeben.[1]
+   * Groß-/Kleinschreibung, Wortgrenzen und Satzzeichen sind beim Rückwärtslesen gegebenenfalls zu ändern.
+   *
    * @param inputString
    * @return boolean
    * @throws RuntimeException
    */
-  public static boolean isPalindrome(String inputString) {
-    inputString = inputString.toLowerCase();//
-    inputString = inputString.replaceAll(" ", ""); //
+  public static boolean isPalindrome(String inputString) throws RuntimeException {
+    if(inputString == "" || inputString == null) {
+      throw new RuntimeException("inputString should not be blank!");
+    }
 
-    int len = inputString.length();
+    inputString = inputString.toLowerCase();
+    inputString = inputString.replace(" ", "");
 
-    for (int i = 0; i < len / 2; i++) {
-      var c1 = inputString.charAt(i);
-      var c2 = inputString.charAt(len-i-1); //
-
-      if(Character.isDigit(c1) || Character.isDigit(c2)) {
-        throw new RuntimeException("no digis allowed");
-      }
-
-      if (inputString.charAt(i) != inputString.charAt(len - i - 1)) {
+    for (int i = 0; i < inputString.length() / 2; i++) {
+      if (inputString.charAt(i) != inputString.charAt(inputString.length()-i-1)) {
         return false;
       }
     }
