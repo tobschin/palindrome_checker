@@ -27,10 +27,4 @@ class PalindromeCheckerTest {
     assertFalse(PalindromeChecker.isPalindrome("ACDAC"));
   }
 
-  @Test
-  void test_isPalindrome_throwRuntimeException() {
-    assertThrows(RuntimeException.class, () -> PalindromeChecker.isPalindrome(""));
-  }
-
-
 }

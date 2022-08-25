@@ -19,11 +19,8 @@ public class PalindromeChecker {
       throw new RuntimeException("inputString should not be blank!");
     }
 
-    inputString = inputString.toLowerCase();
-    inputString = inputString.replace(" ", "");
-
     for (int i = 0; i < inputString.length() / 2; i++) {
-      if (inputString.charAt(i) != inputString.charAt(inputString.length()-i-1)) {
+      if (inputString.charAt(i) != inputString.charAt(inputString.length()-i)) {
         return false;
       }
     }
