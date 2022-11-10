@@ -18,17 +18,17 @@ class PalindromeCheckerTest {
       "Kajak",
       "Der Freibierfred"
   })
-  void test_isPalindrome_true(String inputString) {
+  void test_isPalindrome_shouldBeTrue(String inputString) {
     assertTrue(PalindromeChecker.isPalindrome(inputString));
   }
 
   @Test
-  void test_isPalindrome_false() {
+  void test_isPalindrome_shouldBefalse() {
     assertFalse(PalindromeChecker.isPalindrome("ACDAC"));
   }
 
   @Test
-  void test_isPalindrome_throwRuntimeException() {
+  void test_isPalindrome_shouldThrowRuntimeException() {
     assertThrows(RuntimeException.class, () -> PalindromeChecker.isPalindrome(""));
   }
 
