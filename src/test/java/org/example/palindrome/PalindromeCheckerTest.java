@@ -23,7 +23,7 @@ class PalindromeCheckerTest {
   }
 
   @Test
-  void test_isPalindrome_shouldBefalse() {
+  void test_isPalindrome_shouldBeFalse() {
     assertFalse(PalindromeChecker.isPalindrome("ACDAC"));
   }
 
